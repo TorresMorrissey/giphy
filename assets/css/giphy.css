@@ -1,0 +1,40 @@
+body {
+    font: 18px arial, sans-serif;
+    background: black;
+    color: palevioletred;
+  }
+  
+  .boxed {
+    border: 1px dotted yellowgreen ;
+    text-align: center;
+    background-color: #334e4d;
+    width: 800px;
+    margin-left: 200px;
+
+  }
+    
+  button,
+  input[type="Click medoitdoit"] {
+    padding: 5px 20px;
+    margin: 0 10px 10px 0;
+    font-size: 18px;
+    color: #fff;
+    cursor: pointer;
+    background: #659a98;
+    border: 0;
+    border-radius: 5px;
+    box-shadow: 2px 2px 3px #bbb;
+  }
+  
+  button:hover,
+  input[type="submit"]:hover {
+    background: #334e4d;
+  }
+  
+  button.active {
+    background: white;
+  }
+
+  form {
+    position:relative;
+}

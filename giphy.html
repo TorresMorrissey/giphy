@@ -1,0 +1,91 @@
+<!DOCTYPE html> 
+ <html lang="en">
+
+        <head>
+          <meta charset="utf-8">
+          <title>GIPHY WHIPHY!</title>
+          <link rel="stylesheet" type="text/css" href="assets/css/giphy.css">
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" data-state="still" ></script>
+          <script type="text/javascript">
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" data-state="still" ></script>
+          
+        </head>
+        <div class="boxed">
+        <body><h1>Click Below for Randomness!</h1>
+            <p> <form>
+                    <input class="form-control form-control-lg" type="text" placeholder="what kinda gifs you want?" id="topic">
+                    <input class="btn btn-lg btn-success" type="submit" id="magic-maker" value="make my gif button">
+                </form></p>
+
+                
+          <button data-person="Random Dancing" data-state="still">Random Dancing!!</button>
+          <button data-person="Catwalk" data-state="still"> BABY, WORK IT!</button>
+          <button data-person="50 cent" data-state="still"> In da club!</button>
+          <button data-person="Painter" data-state="still"> Paint-tastic!</button>
+          <button data-person="Victoria's Secret" data-state="still">WOWIE</button>
+          <button data-person="Jessica Rabbit" data-state="still">Jes!
+          </button>
+          <button data-person="Morrissey" data-state="still">The King
+          </button>
+          <button data-person="Shimmy" data-state="still">Shimmy with me
+          </button>
+          <div id="gifs-appear-here">
+          </div>
+        </div>
+       
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" data-state="still" ></script>
+          <script type="text/javascript">
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" data-state="still" ></script>
+  <script type="text/javascript">
+
+
+    // Event listener for all button elements
+    $("button").on("click", function () {
+
+      var person = $(this).attr("data-person");
+
+      
+      var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
+        person + "&api_key=dc6zaTOxFJmzC&limit=10";
+
+      
+      $.ajax({
+        url: queryURL,
+        method: "GET"
+      })
+        .then(function (response) {
+          
+          var results = response.data;
+
+
+          for (var i = 0; i < results.length; i++) {
+
+            
+            if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
+              var gifDiv = $("<div>");
+
+              
+              var rating = results[i].rating;
+
+              var p = $("<p>").text("Rating: " + rating);
+
+              var personImage = $("<img>");
+
+              personImage.attr("src", results[i].images.fixed_height.url);
+
+              
+              gifDiv.append(p);
+              gifDiv.append(personImage);
+
+              $("#gifs-appear-here").prepend(gifDiv);
+            }
+          }
+        });
+    });
+  </script>
+
+        
+</body>
+
+</html>
+

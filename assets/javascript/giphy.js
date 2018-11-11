@@ -52,7 +52,9 @@ $(document).ready(function() {
             $("#buttonville").append(`<button class="btn btn-sm btn-dark giphy-button" data-subject="${topics[i]}">${topics[i]}</button>`)
         }
     }
-  
+  // had trouble playing and pausing gifs
+  // had trouble with the search column and getting it to turn into a button 
+  // :,[ 
 
         });
     });
